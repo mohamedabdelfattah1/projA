@@ -1,0 +1,10 @@
+---
+- name: h1
+  file: path=/passA  state=touch
+[ansible@CONTROL-HOST roles]$ cat r1/tasks/main.yml
+---
+- name: Create fileA
+  file: path={{ file_path }}   state=touch
+  notify:
+    - h1
+- meta: flush_handlers

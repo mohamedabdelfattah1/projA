@@ -1,0 +1,5 @@
+---
+- name: Create fileB
+  file: path={{ fileb_path }}  state=touch
+  notify:
+    - h2
