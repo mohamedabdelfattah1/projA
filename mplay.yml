@@ -1,0 +1,21 @@
+--- 
+- hosts: ansible1
+  #gather_facts: no
+  vars:
+    - file_path: /fileX
+      x: "yes"
+
+  roles:
+    - r1 
+    - r2
+
+  tasks: 
+    - name: Create fileX
+      file: path={{ xyz }} state=touch
+      with_items:
+        - /root/filexyz
+        - /root/fileyxz
+        - /root/filezxy
+      loop_control:
+        loop_var: xyz
+      when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7") or (ansible_facts['distribution_file_variety'] == "CentOS" and ansible_facts['distribution_version'] == "9")
