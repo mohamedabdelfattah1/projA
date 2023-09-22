@@ -1,0 +1,7 @@
+[oldservers]
+ansible1
+ansible2
+
+[newservers]
+ansible3
+ansible4
